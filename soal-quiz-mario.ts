@@ -6,6 +6,7 @@ class Mario {
     invincible : boolean;
     currentform : string;
 
+
     constructor (hp : number, speed : number, positionx : number, positiony : number, invincible : boolean , currentform : string) {
         this.hp = hp;
         this.speed = speed;
@@ -13,33 +14,34 @@ class Mario {
         this.positiony = positiony;
         this.invincible = invincible;
         this.currentform = currentform;
+
     }
 
     bergerakKanan () : string {
         this.positionx = this.positionx += this.speed;
-        return `Mario Bergerak Ke Kanan Sebanyak ${this.positionx} Block`;
+        return `Mario maju sebanyak ${this.positionx} block`;
     }
 
     bergerakKiri () : string {
         this.positionx = this.positionx -= this.speed;
-        return `Mario Bergerak Ke Kiri Sebanyak ${this.positionx} Block`;
+        return `Mario mundur sebanyak ${this.positionx} block`;
     }
 
     superMushroom () : string {
         this.hp = this.hp += 1;
         this.currentform  = "superMario";
-        return `HP Bertambah Menjadi ${this.hp}, Dan Mario Menjadi ${this.currentform}`;
+        return `HP bertambah jadi ${this.hp}, mario menjadi ${this.currentform}`;
     }
 
     fireFlower () : string {
         this.hp = this.hp += 1;
         this.currentform  = "fireMario";
-        return `HP Bertambah Menjadi ${this.hp}, Mario Menjadi ${this.currentform} Dan Dapat Menmbakkan Bola Api`;
+        return `HP bertambah jadi ${this.hp}, mario menjadi ${this.currentform} dan dapat menmbakkan bola api`;
     }
 
     superStar () : string {
         this.invincible = true;
-        return `Mario Menjadi Invincible, Dan Mario Kebal Terhadap Serangan`;
+        return `Mario menjadi invincible, dan mario kebal terhadap serangan`;
     }
 
 }
@@ -51,17 +53,17 @@ class superMario extends Mario {
 
     superStar () : string {
         this.invincible = true;
-        return `superMario Menjadi Invincible, Dan superMario Kebal Terhadap Serangan`;
+        return `superMario jadi invincible, dan superMario kebal terhadap serangan`;
     }
 
     diSerang () : string {
         if(this.invincible == true){
-            return `superMario Kebal Serangan`;
+            return `superMario kebal serangan`;
         }
         else {
             this.hp = this.hp -= 1;
             this.currentform = "mario";
-            return `HP Berkurang Menjadi ${this.hp}, fireMario Menjadi ${this.currentform} Dan Tidak Dapat Menembakkan Api`;
+            return `HP berkurang jadi ${this.hp}, superMario menjadi ${this.currentform}`;
         }
     }
 
@@ -74,17 +76,17 @@ class fireMario extends Mario {
 
     superStar () : string {
         this.invincible = true;
-        return `fireMario Menjadi invincible, Dan fireMario Kebal Terhadap Serangan`;
+        return `fireMario jadi invincible, dan fireMario kebal terhadap serangan`;
     }
 
     diSerang () : string {
         if(this.invincible == true){
-            return `fireMario Kebal Serangan`;
+            return `fireMario kebal serangan`;
         }
         else {
             this.hp = this.hp -= 1;
             this.currentform = "mario";
-            return `HP Berkurang Menjadi ${this.hp}, fireMario Menjadi ${this.currentform} Dan Tidak Dapat Menembakkan Api`;
+            return `HP berkurang jadi ${this.hp}, fireMario menjadi ${this.currentform} dan tidak dapat menembakkan api`;
         }
     }
 
@@ -94,4 +96,4 @@ const mario = new Mario (1, 5, 0, 0, false, "mario");
 const supermario = new superMario (2, 5, 0, 0, false, "superMario");
 const firemario = new fireMario (2, 5, 0, 0, false, "fireMario");
 
-console.log(mario.superStar());
+console.log(mario.bergerakKanan());
